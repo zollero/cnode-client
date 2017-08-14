@@ -67,7 +67,7 @@ export default class Home extends React.Component {
 
 const styles = StyleSheet.create({
   topicScroll: {
-    backgroundColor: '#dddddd',
+    backgroundColor: '#ffffff',
     paddingBottom: 10,
   },
   topicContainer: {
