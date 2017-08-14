@@ -1,7 +1,9 @@
 
 import React, { Component, PropTypes } from 'react'
 import {
-  View
+  View,
+  Text,
+  WebView
 } from 'react-native'
 
 
@@ -11,15 +13,15 @@ export default class TopicDetail extends Component {
   }
 
   static propTypes = {
-    content: PropTypes.string.isRequired
+    // content: PropTypes.Object
   }
 
   render() {
 
     return (
-      <View>
-        { this.props.content }
-      </View>
+      <WebView source={{ html: this.props.content }}>
+
+      </WebView>
     )
   }
 }

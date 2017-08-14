@@ -4,6 +4,8 @@ import { StyleSheet, Text, View, Image, ScrollView, TouchableHighlight } from 'r
 
 import Tag from '../../components/tag'
 
+import TopicDetail from '../topic-detail'
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -25,6 +27,18 @@ export default class Home extends React.Component {
         })
       }
     })
+  }
+
+  detailHandler(detailContent) {
+    const nextRoute = {
+      component: TopicDetail,
+      title: 'Bar That',
+      passProps: {
+        content: detailContent
+      }
+    };
+
+    this.props.navigator.push(nextRoute)
   }
 
   /**
@@ -72,7 +86,7 @@ export default class Home extends React.Component {
         {
           data.map((v, i) => {
             return (
-              <TouchableHighlight key={ i }>
+              <TouchableHighlight key={ i } onPress={ () => this.detailHandler(v.content) }>
                 <View style={ styles.topicContainer }>
                   <View style={{ flexDirection: 'row', marginBottom: 5 }}>
                     <Image source={{ url: v.author.avatar_url }}
