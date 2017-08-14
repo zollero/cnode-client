@@ -3,7 +3,7 @@ const Tags = [
   {
     value: 'share',
     text: '分享',
-    bgColor: 'green'
+    bgColor: '#026e00'
   }, {
     value: 'ask',
     text: '问答',
@@ -15,7 +15,7 @@ const Tags = [
   }, {
     value: 'good',
     text: '精华',
-    bgColor: 'green'
+    bgColor: '#026e00'
   }
 ]
 
