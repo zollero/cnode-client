@@ -29,12 +29,12 @@ export default class Home extends React.Component {
     })
   }
 
-  detailHandler(detailContent) {
+  detailHandler(content, title) {
     const nextRoute = {
       component: TopicDetail,
-      title: 'Bar That',
+      title: title,
       passProps: {
-        content: detailContent
+        content: content
       }
     };
 
@@ -86,7 +86,7 @@ export default class Home extends React.Component {
         {
           data.map((v, i) => {
             return (
-              <TouchableHighlight key={ i } onPress={ () => this.detailHandler(v.content) }>
+              <TouchableHighlight key={ i } onPress={ () => this.detailHandler(v.content, v.title) }>
                 <View style={ styles.topicContainer }>
                   <View style={{ flexDirection: 'row', marginBottom: 5 }}>
                     <Image source={{ url: v.author.avatar_url }}
