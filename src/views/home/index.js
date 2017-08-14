@@ -2,6 +2,8 @@
 import React from 'react';
 import { StyleSheet, Text, View, Image, ScrollView } from 'react-native';
 
+import Tag from '../../components/tag'
+
 export default class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -44,7 +46,7 @@ export default class Home extends React.Component {
                       <Text style={{ textAlign: 'right' }}>{ v.reply_count + '/' + v.visit_count }</Text>
                     </View>
                     <View style={{ flex: 1, flexDirection: 'row', justifyContent: 'space-between' }}>
-                      <Text>{ v.tab }</Text>
+                      <Tag value={ v.tab } />
                       <Text style={{ textAlign: 'right' }}>{ '最后回复：' + v.last_reply_at }</Text>
                     </View>
                   </View>
