@@ -38,18 +38,22 @@ export default class Tag extends Component {
   render() {
     const { name, bgColor } = this.state
 
+    const style = {
+      backgroundColor: bgColor,
+      justifyContent: 'center',
+      alignItems: 'center',
+      color: '#fff',
+      height: 20,
+      lineHeight: 20,
+      paddingLeft: 5,
+      paddingRight: 5,
+      fontSize: 12
+    }
+
     return (
-      <Text style={{ backgroundColor: bgColor, justifyContent: 'center', alignItems: 'center', color: '#fff' } }>
+      <Text style={ style }>
         { name }
       </Text>
     )
   }
 }
-
-const styles = StyleSheet.create({
-  tag: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    color: '#fff'
-  }
-})
