@@ -188,7 +188,6 @@ export default class HtmlView extends Component {
   }
 
   static propTypes = {
-    // content: PropTypes.Object
     value: PropTypes.string,
     style: PropTypes.object,
     maxImageWidth: PropTypes.number
@@ -227,10 +226,12 @@ export default class HtmlView extends Component {
     }
     if (node.name === 'img') {
       const uri = node.attribs.src
-
+      if (uri.indexOf('http') === -1 && uri.indexOf('https') === -1) {
+        uri = 'http:' + uri
+      }
       return (
-        <Image source={{ uri: uri}} style={this._styles.image} resizeMode="center"
-         key={'img_'+index} onLoadEnd={()=>this._onImageLoadEnd(uri,index)}/>
+        <Image source={{ uri: uri }} style={this._styles.image} resizeMode="center"
+          key={'img_' + index} onLoadEnd={()=>this._onImageLoadEnd(uri,index)}/>
       )
     }
   }
@@ -239,7 +240,7 @@ export default class HtmlView extends Component {
 
     return (
       <HTMLView
-        style={{ padding: 20 }}
+        style={{ padding: 10 }}
         value={ this.props.value }
         stylesheet={ this._styles }
         onLinkPress={this._handleLinkPress}
