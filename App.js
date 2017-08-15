@@ -14,7 +14,7 @@ export default class App extends React.Component {
       <NavigatorIOS
         initialRoute={{
           component: Home,
-          title: '首页',
+          title: 'CNode',
         }}
         style={{flex: 1, backgroundColor: '#fff' }}
       />

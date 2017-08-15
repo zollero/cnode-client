@@ -1,4 +1,5 @@
 
+
 import React, { Component, PropTypes } from 'react'
 import {
   View,
@@ -161,7 +162,7 @@ const defaultHtmlStyles = {
   }
 }
 
-export default class TopicDetail extends Component {
+export default class HtmlView extends Component {
 
   constructor(props) {
     super(props);
@@ -237,16 +238,12 @@ export default class TopicDetail extends Component {
   render() {
 
     return (
-      // <WebView source={{ html: this.props.content }}>
-
-      // </WebView>
-      <ScrollView style={{ padding: 10 }}>
-        <HTMLView
-          value={ this.props.content }
-          stylesheet={ this._styles }
-          onLinkPress={this._handleLinkPress}
-          renderNode={this._renderNode} />
-      </ScrollView>
+      <HTMLView
+        style={{ padding: 20 }}
+        value={ this.props.value }
+        stylesheet={ this._styles }
+        onLinkPress={this._handleLinkPress}
+        renderNode={this._renderNode} />
     )
   }
 }
