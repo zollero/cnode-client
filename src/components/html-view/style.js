@@ -1,22 +1,10 @@
 
-
-import React, { Component, PropTypes } from 'react'
 import {
-  View,
-  ScrollView,
-  Text,
-  Linking,
   Image,
-  Dimensions,
-  StyleSheet,
-  WebView
+  Dimensions
 } from 'react-native'
 
-import ImageContainer from '../image-container'
-
-import HTMLView from 'react-native-htmlview'
-
-const screenWidth = Dimensions.get("window").width
+const screenWidth = Dimensions.get("window").width;
 
 const fontSize = 16
 const rowMargin = 5
@@ -29,6 +17,7 @@ const defaultHtmlStyles = {
   },
   p: {
     fontSize,
+    lineHeight: 22,
     color: "rgba(0,0,0,0.8)"
   },
   pwrapper: {
@@ -164,72 +153,4 @@ const defaultHtmlStyles = {
   }
 }
 
-export default class HtmlView extends Component {
-
-  constructor(props) {
-    super(props);
-    this._handleLinkPress = this._handleLinkPress.bind(this)
-    this._renderNode = this._renderNode.bind(this)
-    this._images = {}
-    let _styles = {}
-    for (let key in defaultHtmlStyles) {
-        if (props.style[key]) {
-            _styles[key] = { ...defaultHtmlStyles[key], ...props.style[key] }
-        } else {
-            _styles[key] = defaultHtmlStyles[key]
-        }
-    }
-    this._styles = StyleSheet.create(_styles)
-  }
-
-  static defaultProps = {
-    maxImageWidth: screenWidth - 20,
-    style: {},
-    value: ""
-  }
-
-  static propTypes = {
-    value: PropTypes.string,
-    style: PropTypes.object,
-    maxImageWidth: PropTypes.number
-  }
-
-  _handleLinkPress(url) {
-    Linking.canOpenURL(url).then(support => {
-      if (support) {
-        Linking.openURL(url)
-      }
-    }).catch(err => console.log(err))
-  }
-
-  _renderNode(node, index) {
-    if (node.name == 'iframe') {
-      return (
-        <View key={'iframe_'+index} style={{width: 200, height: 200}}>
-          <Text>{node.attribs.src}</Text>
-        </View>
-      )
-    }
-    if (node.name === 'img') {
-      const uri = node.attribs.src
-      if (uri.indexOf('http') === -1 && uri.indexOf('https') === -1) {
-        uri = 'http:' + uri
-      }
-      return (
-        <ImageContainer uri={ uri } key={ index } />
-      )
-    }
-  }
-
-  render() {
-
-    return (
-      <HTMLView
-        style={{ padding: 10 }}
-        value={ this.props.value }
-        stylesheet={ this._styles }
-        onLinkPress={this._handleLinkPress}
-        renderNode={this._renderNode} />
-    )
-  }
-}
+export default defaultHtmlStyles;
