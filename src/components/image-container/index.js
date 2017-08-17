@@ -28,6 +28,7 @@ export default class ImageContainer extends Component {
   componentDidMount() {
     const { uri } = this.props
     Image.getSize(uri, (width, height) => {
+
       height = screenWidth * height / width; //按照屏幕宽度进行等比缩放
       this.setState({
         height: height
@@ -49,7 +50,7 @@ export default class ImageContainer extends Component {
     }
 
     return (
-      <Image style={styles} source={{uri: uri}} resizeMode="center" />
+      <Image style={styles} source={{uri: uri}} resizeMode="contain" />
     )
   }
 }
