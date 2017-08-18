@@ -10,11 +10,6 @@ const fontSize = 16
 const rowMargin = 5
 
 const defaultHtmlStyles = {
-  image: {
-    width: screenWidth - 20,
-    height: screenWidth - 20,
-    resizeMode: Image.resizeMode.contain
-  },
   p: {
     fontSize,
     lineHeight: 22,
