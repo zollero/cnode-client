@@ -10,9 +10,14 @@ const fontSize = 16
 const rowMargin = 5
 
 const defaultHtmlStyles = {
+  img: {
+    width: screenWidth - 20,
+    height: screenWidth - 20,
+    resizeMode: Image.resizeMode.contain
+  },
   p: {
     fontSize,
-    lineHeight: 22,
+    lineHeight: fontSize * 1.5,
     color: "rgba(0,0,0,0.8)"
   },
   pwrapper: {
@@ -29,6 +34,7 @@ const defaultHtmlStyles = {
   },
   h1: {
     fontSize: fontSize * 1.6,
+    lineHeight: fontSize * 2.2,
     fontWeight: "bold",
     color: 'rgba(0,0,0,0.8)'
   },

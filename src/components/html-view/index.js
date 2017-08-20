@@ -12,7 +12,7 @@ import ImageContainer from '../image-container'
 
 import HTMLView from 'react-native-htmlview'
 
-import { defaultHtmlStyles } from './style'
+import defaultHtmlStyles from './style'
 
 export default class HtmlView extends Component {
   constructor(props) {
